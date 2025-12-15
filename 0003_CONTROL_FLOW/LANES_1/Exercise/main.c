@@ -1,22 +1,22 @@
 #include <stdio.h>
 
-void printRoadRow(int choice);
+typedef enum
+{
+    LeftLane = 1,
+    CenterLane = 2,
+    RightLane = 3,
+    UnknownLane = 4
+} LaneAssociationType;
+
+void printRoadRow(LaneAssociationType lane);
 void printEmptyRoadRow();
 
 int main()
 {
     // definitions and declarations
-    enum LaneAssociationType
-    {
-        LeftLane = 1,
-        CenterLane = 2,
-        RightLane = 3,
-        UnknownLane = 4
-    };
-
     float speed;
     int choice;
-    enum LaneAssociationType currentLane;
+    LaneAssociationType currentLane;
 
     // input
     printf("Create the properties of a vehicle.\n");
@@ -29,19 +29,19 @@ int main()
     // output
     printf("                L                 C                 R         \n");
     printEmptyRoadRow();
-    printRoadRow(choice);
+    printRoadRow(currentLane);
     printEmptyRoadRow();
 
     return 0;
 }
 
-void printRoadRow(int choice)
+void printRoadRow(LaneAssociationType choice)
 {
-    if (choice == 1)
+    if (choice == LeftLane)
         printf("       |        X        |                 |                 |\n");
-    else if (choice == 2)
+    else if (choice == CenterLane)
         printf("       |                 |        X        |                 |\n");
-    else if (choice == 3)
+    else if (choice == RightLane)
         printf("       |                 |                 |        X        |\n");
     else
         printf("       |                 |                 |                 |\n");
