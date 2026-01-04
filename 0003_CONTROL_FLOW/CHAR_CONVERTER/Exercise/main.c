@@ -3,30 +3,36 @@
 
 int main()
 {
+    // definitions and declarations
     char character;
 
+    // input
     printf("Please enter any ASCII character: ");
     scanf("%c", &character);
 
-    if (isalnum(character))
-        printf("Alphanumeric!\n");
-    else if (isalpha(character))
-        printf("Alpha!\n");
-    else if (isdigit(character))
-        printf("Numeric!");
+    // output and processing
 
-    // is upper case
-    if (isupper(character)) 
+    if (!isalnum(character))
     {
-        printf("Uppercase!\n");
-        printf("Lower: %c\n", tolower(character));
+        printf("Not an alphanumeric character, quitting...\n");
+        return 0;
     }
 
-    // is lower case
-    if (islower(character)) 
+    if (isalpha(character))
     {
-        printf("Lowercase!\n");
-        printf("Upper: %c\n", toupper(character));
+        printf("Alphabetic character!\n");
+        if (isupper(character))
+        {
+            printf("Case: Uppercase\n");
+            printf("Lower: %c\n", tolower(character));
+        }
+        else
+        {
+            printf("Case: Lowercase\n");
+            printf("Upper: %c\n", toupper(character));
+        }
     }
+    else
+        printf("Numeric character!\n");
     return 0;
 }
