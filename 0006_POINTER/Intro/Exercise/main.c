@@ -17,6 +17,5 @@ int main()
     printf("Address of myPointer:\t%p\n", &myPointer);
     printf("Address of yourPointer:\t%p\n", &yourPointer);
 
-
     return 0;
 }
